@@ -1,0 +1,30 @@
+﻿<!DOCTYPE hibernate-configuration PUBLIC   
+    "-//Hibernate/Hibernate Configuration DTD//EN"  
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">  
+  
+<hibernate-configuration>  
+    <session-factory>  
+      
+        <!-- Settings for a database. -->  
+        <property name="hibernate.connection.datasource">java:comp/env/jdbc/mycompanyDS</property>
+        <property name="current_session_context_class">thread</property>
+  
+        <!-- Disable second-level cache. -->  
+        <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>  
+        <property name="cache.use_query_cache">false</property>  
+        <property name="cache.use_minimal_puts">false</property>  
+        <property name="max_fetch_depth">3</property>  
+      
+        <!-- Print SQL to stdout. -->  
+        <property name="show_sql">true</property>  
+        <property name="format_sql">true</property>  
+      
+        <!-- Drop and then re-create schema on SessionFactory build, for testing. -->  
+        <!-- <property name="hbm2ddl.auto">validate</property> -->  
+      
+        <!-- Bind the getCurrentSession() method to the thread. -->  
+        <property name="current_session_context_class">thread</property>  
+  
+    </session-factory>  
+  
+</hibernate-configuration>  
