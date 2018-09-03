@@ -1,0 +1,38 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'maven-publish'
+
+group = 'com.mycompany.config'
+version = '2.0-SNAPSHOT'
+
+description = """webapp_config"""
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+	mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'org.springframework', name: 'spring-core', version:'5.0.8.RELEASE'
+    compile group: 'org.springframework', name: 'spring-web', version:'5.0.8.RELEASE'
+    compile group: 'org.springframework', name: 'spring-webmvc', version:'5.0.8.RELEASE'
+    compile group: 'org.springframework', name: 'spring-orm', version:'5.0.8.RELEASE'
+    compile group: 'org.springframework.security', name: 'spring-security-config', version:'5.0.3.RELEASE'
+    compile group: 'org.springframework.security', name: 'spring-security-web', version:'5.0.3.RELEASE'
+    compile group: 'org.hibernate', name: 'hibernate-core', version:'5.3.4.Final'
+    compile group: 'org.postgresql', name: 'postgresql', version:'42.2.4'
+    compile group: 'org.slf4j', name: 'slf4j-log4j12', version:'1.6.1'
+    compile group: 'javax.servlet', name: 'javax.servlet-api', version:'3.1.0'
+    runtime group: 'log4j', name: 'log4j', version:'1.2.16'
+}
+
+publishing {
+	publications {
+		mavenLocal(MavenPublication) {
+			from components.java
+		}
+	}
+}
